@@ -11,8 +11,7 @@ class TipViewModel: ObservableObject {
 
 struct AudioMessageTip: Tip {
     
-//    Step 3:
-//    static let enterAndNotUseAudioMessage: Tips.Event = Tips.Event(id: "enter-message-view")
+    static let enterAndNotUseAudioMessage: Tips.Event = Tips.Event(id: "enter-message-view")
     
     var title: Text {
         Text("Enviar un audio")
@@ -31,18 +30,11 @@ struct AudioMessageTip: Tip {
             .init(id: "learn-more", title: "Saber más")
         ]
     }
-    
-//    Add new options to our Tip. This tip will be displayed
-//    five times (max).
-    var options: [TipOption] {
-        [
-            MaxDisplayCount(5)
-        ]
+      
+    // Include the rule that defines how many donations we need to display
+    // the tip
+    var rules: [Rule] {
+        #Rule(Self.enterAndNotUseAudioMessage) { event in event.donations.count > 3 }
     }
-//    
-//    Step 3
-//    var rules: [Rule] {
-//        #Rule(Self.enterAndNotUseAudioMessage) { event in event.donations.count > 3 }
-//    }
     
 }

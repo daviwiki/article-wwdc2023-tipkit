@@ -49,10 +49,10 @@ struct MessageView: View {
                     .fontWeight(.medium)
             }
         }
-//        Step 3: Donation
-//        .task {
-//            await AudioMessageTip.enterAndNotUseAudioMessage.donate()
-//        }
+        .task {
+            // Donate a event each time the user enter into the MessageView
+            await AudioMessageTip.enterAndNotUseAudioMessage.donate()
+        }
     }
     
     @ViewBuilder
@@ -106,8 +106,8 @@ struct MessageView: View {
             Button(action: {
                 // todo: record audio
                 
-//                Step 3:
-//                tipViewModel.audioFeatureTip.invalidate(reason: .actionPerformed)
+                // Invalidate the Tip if user find the feature and use it
+                tipViewModel.audioFeatureTip.invalidate(reason: .actionPerformed)
             }, label: {
                 Image(systemName: "mic")
                     .resizable()
