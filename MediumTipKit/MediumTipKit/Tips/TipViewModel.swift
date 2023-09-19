@@ -32,14 +32,13 @@ struct AudioMessageTip: Tip {
         ]
     }
     
-//    Step 2
 //    Add new options to our Tip. This tip will be displayed
 //    five times (max).
-//    var options: [TipOption] {
-//        [
-//            MaxDisplayCount(5)
-//        ]
-//    }
+    var options: [TipOption] {
+        [
+            MaxDisplayCount(5)
+        ]
+    }
 //    
 //    Step 3
 //    var rules: [Rule] {
